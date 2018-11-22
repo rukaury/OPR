@@ -5,6 +5,15 @@
  * Date: 2018-11-10
  * Time: 15:48
  */
+
+/*
+ * This file should be used to display the footer on every page.
+ * This files also contains all the calls to the Javascript files used for the webpage
+ * Different methods could be used to references it, for now we are using the method include_once
+ * ($filename).
+ *
+ * For further understanding take a loot at: http://php.net/manual/en/function.include-once.php
+ */
 ?>
 
 <!-- FOOTER-->

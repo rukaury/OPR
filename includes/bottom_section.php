@@ -4,7 +4,18 @@
  * Creator: Aury
  * Date: 2018-11-10
  * Time: 16:42
- */?>
+ */
+
+/*
+* This file should be used to display the contact bottom section on every page.
+* Different methods could be used to references it, for now we are using the method include_once
+* ($filename).
+*
+* For further understanding take a loot at: http://php.net/manual/en/function.include-once.php
+*/
+
+?>
+
 <section class="section section-banner pd-60 bg-primary text-white">
     <div class="container">
         <div class="row">

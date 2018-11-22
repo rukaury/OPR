@@ -5,6 +5,65 @@
  * Date: 2018-11-10
  * Time: 16:14
  */
+
+/*
+* This file represents the VIEW PROPERTIES page.
+ *
+ * @var string $host
+ *
+ * The variable should be used to determine which domain where running on, in order to call the
+ * API on the same domain. We currently accept only two domains:
+ *
+ * rukazana.com: Production Server
+ * localhost:8040: Local Development server
+ *
+ * @var string $apiUrl
+ *
+ * The variable should be used to get the first static part of the API URL (eg:
+ * {{domain}}/crybAPI):
+ *
+ * @var string $get_data
+ *
+ * The variable should be used to get the property's information retrieved from the API
+ *
+ * @var array $response
+ *
+ * The variable should be used to save the properties information saved in $get_data in a JSON format
+ *
+ * @var JSON $propertyData
+ *
+ * The variable should be equal to the $response variable. We use this variable to make sure we
+ * do not modify the $response data.
+ *
+ * @var string $city
+ * @var string $type
+ * @var int $num_of_beds
+ * @var int $num_of_baths
+ * @var int $minPrice
+ * @var int $maxPrice
+ *
+ * These variables should be used to get the URI parameters in order to query properties using
+ * those parameters as search criteria.
+ *
+ * We use the php function isset() to check if that parameter was passed.
+ *
+ * For further info, please take a look at: http://php.net/manual/en/function.isset.php
+ *
+ * @var string $params
+ *
+ * The variable should be used to add the parameters to the API URI
+ *
+ * @var string $html
+ *
+ * The variable should be used to concatenate all the information we need to display on the screen.
+ *
+ * @var int $uid
+ * @var int $isOwner
+ *
+ * Review /Cryb/includes/header/header.php for information about these two variables.
+ *
+*/
+
 $city = isset($_GET['city'])  ? $_GET['city'] : null;
 $type = isset($_GET['type'])  ? $_GET['type'] : null;
 $num_of_beds = isset($_GET['beds'])  ? (int)$_GET['beds'] : 0;
@@ -12,6 +71,7 @@ $num_of_baths = isset($_GET['baths'])  ? (int)$_GET['baths'] : 0;
 $minPrice = isset($_GET['minPrice'])  ? (int)$_GET['minPrice'] : 0;
 $maxPrice = isset($_GET['maxPrice'])  ? (int)$_GET['maxPrice'] : 0;
 $host = "";
+
 switch ($_SERVER['HTTP_HOST']) {
     case 'www.rukazana.com':
         $host = 'https://www.rukazana.com';
@@ -23,6 +83,7 @@ switch ($_SERVER['HTTP_HOST']) {
         header('Location: 404_error.php');
         break;
 }
+
 $apiUrl = $host . "/crybAPI";
 include_once("./includes/apiFunctions/callAPI.php");
 include_once("./includes/header/header.php");

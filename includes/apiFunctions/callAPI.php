@@ -6,6 +6,27 @@
  * Time: 13:12
  */
 
+
+/*
+ * This function should use curl to make an API call to the crybAPI using these HTTP verbs:
+ * This function may require a little bit of knowledge of how REST API works.
+ * This function should return a response in a JSON format.
+ *
+ * POST (ADD)
+ * GET
+ * PUT  (UPDATE)
+ * DELETE
+ *
+ *
+ * For further understanding take a look at http://php.net/manual/en/book.curl.php.
+ *
+ * @param string $method This parameter should be used to indicate which HTTP verb to use.
+ * @param string $url This parameter should be used to indicate which API url to call.
+ * @param string $data This parameter should be used to indicate if necessary which data you wish
+ * to send (in the body) with the API call.
+ * @returns $result
+ */
+
 function callAPI($method, $url, $data){
     $curl = curl_init();
 

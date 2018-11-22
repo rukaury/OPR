@@ -5,6 +5,11 @@
  * Date: 2018-11-11
  * Time: 16:01
  */
+
+/*
+* This file represents the 404 ERROR  view page.
+*/
+
 include_once("./includes/header/header.php");
 ?>
     <!-- CONTENT-->

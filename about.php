@@ -5,6 +5,11 @@
  * Date: 2018-11-10
  * Time: 16:41
  */
+
+/*
+* This file represents the ABOUT view page. It should be able to display all the necessary information
+ *  of the about page (landing page).
+*/
 include_once("./includes/header/header.php");
 ?>
     <!-- CONTENT-->

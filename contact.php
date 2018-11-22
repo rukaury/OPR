@@ -5,6 +5,14 @@
  * Date: 2018-11-10
  * Time: 16:53
  */
+
+/*
+ *
+ * This file represents the CONTACT view page. It should be able to display all the necessary
+ * information of the contact page (landing page).
+ */
+
+
 include_once("./includes/header/header.php");
 ?>
 

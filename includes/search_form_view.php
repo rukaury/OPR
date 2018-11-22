@@ -5,6 +5,14 @@
  * Date: 2018-11-10
  * Time: 16:30
  */
+
+/*
+* This file should be used to display the search property form bottom section on selected pages.
+* Different methods could be used to references it, for now we are using the method include_once
+* ($filename).
+*
+* For further understanding take a loot at: http://php.net/manual/en/function.include-once.php
+*/
 ?>
 
 <form class="search-filter" action="properties.php" id="searchPropertiesForm" method="get">

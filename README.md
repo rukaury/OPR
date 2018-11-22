@@ -1,9 +1,31 @@
-# OPR
+# Cryb Online Property Rental
 
+Cryb is an online property rental system used to find properties accross the world.
 
-The objective of the project is to develop an online system to help «Houses of Dreams» interact quickly and efficiently with its Customers.
+## Installation
 
-The OPR will be accessible on the Internet through a standard Internet browsers. It will allow owners to advertise properties, customers to access available rental properties, help agents connect customers with properties and prepare leases. 
+Download the crybAPI for development purposes on your local or dev machine.
 
-Customers will be able to view properties, schedule visits and apply for rental. The OPR will contain a database with information on properties including photographies and the rent amount. Customers will be able to search through properties
-according to various criteria, register for visits and apply for rental. Financial transactions will be handled by a third party upon receipt of financial information from OPR.
+You will need to authenticate yourself if you have access.
+
+```bash
+git clone https://github.com/myoutspace/crybAPI
+```
+
+#### Template
+
+Purchased from: http://html.green-estate.krizantos.com/ 
+
+## Usage
+
+```bash
+curl http://{{domain}}/crybAPI/properties # returns 'json data'
+```
+
+## Contributing
+This repository is strictly private and will always remain private for security concerns.
+
+Please make sure to comment your code and update tests as appropriate.
+
+## License
+[quadTech](https://quadTech.com/about/licenses/)

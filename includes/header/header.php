@@ -5,8 +5,36 @@
  * Date: 2018-11-10
  * Time: 15:46
  */
+
+/*
+ * This file should be used to display the header on every page.
+ * This files also contains all the calls to the stylesheets (css) files used for the webpage
+ * Different methods could be used to references it, for now we are using the method include_once
+ * ($filename).
+ *
+ * For further understanding take a loot at: http://php.net/manual/en/function.include-once.php
+ *
+ * @var string $pageName
+ *
+ * The variable should be used to find which page we are currently viewing on the screen and
+ * have the navigation bar in the header have a green box around the current page.
+ *
+ * The variable gets the name of the page using a php function basename().
+ *
+ * For further understanding take a look at: http://php.net/manual/en/function.basename.php
+ *
+ * @var int $uid
+ * @var int $isOwner
+ *
+ * These two variables should be used to keep track of the user is a landlord or customer and
+ * his/her id if he/she is logged in. We currently use sessions to keep track of it.
+ *
+ * For further understanding take a look at: http://php.net/manual/en/book.session.php
+ *
+ *
+ */
 $pageName = basename($_SERVER['PHP_SELF']);
-session_start();
+session_start(); // start the session
 $uid = 0;
 $isOwner = 0;
 if(array_key_exists('uid', $_SESSION)){

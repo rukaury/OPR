@@ -5,10 +5,75 @@
  * Date: 2018-11-10
  * Time: 15:44
  */
+
+/*
+* This file represents the VIEW PROPERTIES page.
+ *
+ * @var string $host
+ *
+ * The variable should be used to determine which domain where running on, in order to call the
+ * API on the same domain. We currently accept only two domains:
+ *
+ * rukazana.com: Production Server
+ * localhost:8040: Local Development server
+ *
+ * @var string $apiUrl
+ *
+ * The variable should be used to get the first static part of the API URL (eg:
+ * {{domain}}/crybAPI):
+ *
+ * @var string $get_data
+ *
+ * The variable should be used to get the property's information retrieved from the API
+ *
+ * @var array $response
+ *
+ * The variable should be used to save the properties information saved in $get_data in a JSON format
+ *
+ * @var JSON $propertyData
+ * @var JSON $photosData
+ *
+ * The variable should be equal to the $response variable. We use this variable to make sure we
+ * do not modify the $response data.
+ *
+ * @var string $type
+ * @var int $ownerId
+ * @var int $num_of_bedrooms
+ * @var int $num_of_bathrooms
+ * @var int $num_of_other_rooms
+ * @var string $description
+ * @var int $price
+ * @var string $area
+ * @var int $number
+ * @var string $street
+ * @var string $city
+ * @var string $state
+ * @var string $country
+ * @var string $apartment
+ *
+ * These variables should be used to get every single property information .
+ *
+ *
+ * @var string $params
+ *
+ * The variable should be used to add the parameters to the API URI
+ *
+ * @var string $html
+ *
+ * The variable should be used to concatenate all the information we need to display on the screen.
+ *
+ * @var int $uid
+ * @var int $isOwner
+ *
+ * Review /Cryb/includes/header/header.php for information about these two variables.
+ *
+*/
+
 include_once("./includes/apiFunctions/callAPI.php");
 include_once("./includes/header/header.php");
 $pid = isset($_GET['pid']) ? (int)$_GET['pid'] : 0;
 $host = "";
+
 switch ($_SERVER['HTTP_HOST']) {
     case 'www.rukazana.com':
         $host = 'https://www.rukazana.com';
@@ -20,6 +85,7 @@ switch ($_SERVER['HTTP_HOST']) {
         header('Location: 404_error.php');
         break;
 }
+
 $apiUrl = $host . "/crybAPI";
 $get_data = callAPI('GET', $apiUrl . '/properties/' . $pid, false);
 $response = json_decode($get_data, true);
@@ -92,7 +158,8 @@ if(($isOwner == 1 && $uid != $ownerId) || $pid == 0){
                                                $get_data = callAPI('GET', $apiUrl . '/photos/' . $pid . '/allData', false);
                                                $response = json_decode($get_data, true);
                                                $photosData = $response;
-                                               for($i = 0; $i < count($photosData); $i++){
+                                               for($i = 0; $i < count($photosData); $i++){ // add
+                                                   // every photo retrieved
                                                    $html = '<div class="item">';
                                                    $html .= '<div class="item-inner">';
                                                    $randomNumber = random_int(0, 9);
@@ -250,53 +317,6 @@ if(($isOwner == 1 && $uid != $ownerId) || $pid == 0){
 
                         <div class="col-lg-4">
                             <div class="single-sidebar">
-                                <!--
-                                <div class="agenecy-sidebar mb-30">
-                                    <div class="agenecy-sidebar_top">
-                                        <div class="agenecy-sidebar_top_img">
-                                            <div class="-resp-bg-img" style="background-image: url(./assets/img/bg/bg-sidebar-agency.png);"></div>
-                                        </div>
-                                        <div class="agenecy-sidebar_top_content">
-                                            <h4 class="agenecy-sidebar_top_title">Real Estate ON Agency</h4>
-                                            <div class="agency-phone_list">
-                                                <div class="item">
-                                                    <div class="title">Office:</div><a href="tel:1-222-333-4444">1-222-333-4444</a>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="title">Mobile:</div><a href="tel:1-234-456-7893">1-234-456-7893</a>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="title">Fax:</div><a href="tel:1-333-444-5555">1-333-444-5555</a>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="title">Email:</div><a href="mailto:hello@realestate.com">hello@realestate.com</a>
-                                                </div>
-                                            </div>
-                                            <ul class="social-list -color agency-social_list">
-                                                <li><a class="-fb" href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a class="-tw" href="javascript:void(0);" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a class="-gp" href="javascript:void(0);" target="_blank"><i class="fab fa-google"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="agenecy-sidebar_bot">
-                                        <form action="javascript:void(0);">
-                                            <div class="form-group">
-                                                <input class="form-control" type="text" placeholder="Name*" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <input class="form-control" type="text" placeholder="Email*" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea class="form-control" placeholder="Message"></textarea>
-                                            </div>
-                                            <div class="search-filter_submit">
-                                                <input class="btn btn-primary btn-md btn-block" type="submit" value="send your message">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                -->
                                 <?php include_once ("./includes/search_form_view.php")?>
                             </div>
                         </div>

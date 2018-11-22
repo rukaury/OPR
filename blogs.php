@@ -5,6 +5,12 @@
  * Date: 2018-11-10
  * Time: 17:12
  */
+
+/*
+ *
+ * This file represents the BLOG view page. It should be able to display all the necessary
+ * information of the blogs page (landing page).
+ */
 include_once("./includes/header/header.php");
 ?>
     <!-- CONTENT-->

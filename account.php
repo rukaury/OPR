@@ -5,6 +5,49 @@
  * Date: 2018-11-17
  * Time: 16:46
  */
+
+/*
+* This file represents the ACCOUNT view page. It should be able to display all the necessary information
+ *  of the account page (landing page).
+ *
+ * @var string $host
+ *
+ * The variable should be used to determine which domain where running on, in order to call the
+ * API on the same domain. We currently accept only two domains:
+ *
+ * rukazana.com: Production Server
+ * localhost:8040: Local Development server
+ *
+ * @var string $apiUrl
+ *
+ * The variable should be used to get the first static part of the API URL (eg:
+ * {{domain}}/crybAPI):
+ *
+ * @var string $get_data
+ *
+ * The variable should be used to get the user's account information retrieved from the API
+ *
+ * @var array $response
+ *
+ * The variable should be used to save the users data saved in $get_data in a JSON format
+ *
+ * @var JSON $customerData
+ *
+ * The variable should be equal to the $response variable. We use this variable to make sure we
+ * do not modify the $response data.
+ *
+ * @var string $fName
+ * @var string $lName
+ * @var string $email
+ * @var string $sex
+ * @var string $pass
+ * @var string $username
+ * @var string $phone
+ *
+ * These variables should be used to save every single user information such their name, sex,
+ * email, ...
+ *
+*/
 $host = "";
 switch ($_SERVER['HTTP_HOST']) {
     case 'www.rukazana.com':

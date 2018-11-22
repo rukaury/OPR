@@ -7,6 +7,15 @@
  * Time: 14:40
  */
 
+/*
+* This file represents the HOME page. It should be able to display all the necessary information
+ *  of the home page (landing page).
+ *
+ * Currently static but needs to be evaluated for dynamic data.
+ *
+ *
+*/
+
 include_once("./includes/header/header.php");
 ?>
 

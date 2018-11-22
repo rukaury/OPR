@@ -5,6 +5,61 @@
  * Date: 2018-11-10
  * Time: 17:25
  */
+
+/*
+ * This file represents the LOGIN and REGISTRATION page.
+ *
+ * @var string $host
+ *
+ * The variable should be used to determine which domain where running on, in order to call the
+ * API on the same domain. We currently accept only two domains:
+ *
+ * rukazana.com: Production Server
+ * localhost:8040: Local Development server
+ *
+ * @var string $apiUrl
+ *
+ * The variable should be used to get the first static part of the API URL (eg:
+ * {{domain}}/crybAPI):
+ *
+ * @var string $get_data
+ *
+ * The variable should be used to get the property's information retrieved from the API
+ *
+ * @var array $response
+ *
+ * The variable should be used to get the properties information saved in $get_data in a JSON format
+ *
+ * @var array $data_array
+ *
+ * The variable should be used to POST send the users information when they register.
+ *
+ * @var PHP global variable $_SESSION
+ *
+ * The variable should be used to save the users information in the browser once they log in or
+ * register using sessions
+ *
+ * For further understanding take a look at: http://php.net/manual/en/book.session.php
+ *
+ * @var string $email
+ * @var string $confEmail
+ * @var string $pass
+ * @var int $sex
+ * @var int $confPass
+ * @var int $accountType
+ * @var int $fName
+ * @var int $lName
+ *
+ *
+ * These variables should be used to get the URI parameters in order to query properties using
+ * those parameters as search criteria.
+ *
+ * We use sometimes the php function isset() to check if that user has entered the data. By
+ * default the user should not be able to submit without entering data since it is evaluated in
+ * the front-end but just for acuuracy if bots tries to save data.
+ *
+ *
+ */
 $host = "";
 switch ($_SERVER['HTTP_HOST']) {
     case 'www.rukazana.com':
@@ -18,9 +73,14 @@ switch ($_SERVER['HTTP_HOST']) {
         break;
 }
 $apiUrl = $host . "/crybAPI";
+
 include_once("./includes/apiFunctions/auth.php");
 include_once("./includes/apiFunctions/callAPI.php");
-include_once("./includes/header/header.php");?>
+include_once("./includes/header/header.php");
+
+?>
+
+
 
 <main class="main">
     <div class="breadcrumb-wrap">
@@ -97,8 +157,8 @@ provided already exist in our records.</p></div>";
                 );
 
                 $url = $apiUrl .  "/customers";
-                $make_call = callAPI('POST', $url, json_encode($data_array));
-                $response = json_decode($make_call, true);
+                $get_data = callAPI('POST', $url, json_encode($data_array));
+                $response = json_decode($get_data, true);
 
                 if($response == ""){
                     print "<div class='flat-card red-back'><p>Sorry an error has occurred on our end! Try again or <a href ='contact.php'> contact us!</a> </p></div>";
